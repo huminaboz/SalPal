@@ -71,6 +71,20 @@ MonoBehaviour:
       eventFloat: 0
     - spriteCollection: {fileID: 11400000, guid: 972c5d2fec29ecd4ba1ad85a7c91e675,
         type: 2}
+      spriteId: 0
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400000, guid: 972c5d2fec29ecd4ba1ad85a7c91e675,
+        type: 2}
+      spriteId: 1
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400000, guid: 972c5d2fec29ecd4ba1ad85a7c91e675,
+        type: 2}
       spriteId: 1
       triggerEvent: 0
       eventInfo: 
@@ -121,6 +135,48 @@ MonoBehaviour:
     - spriteCollection: {fileID: 11400000, guid: 972c5d2fec29ecd4ba1ad85a7c91e675,
         type: 2}
       spriteId: 2
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400000, guid: 972c5d2fec29ecd4ba1ad85a7c91e675,
+        type: 2}
+      spriteId: 2
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400000, guid: 972c5d2fec29ecd4ba1ad85a7c91e675,
+        type: 2}
+      spriteId: 1
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400000, guid: 972c5d2fec29ecd4ba1ad85a7c91e675,
+        type: 2}
+      spriteId: 1
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400000, guid: 972c5d2fec29ecd4ba1ad85a7c91e675,
+        type: 2}
+      spriteId: 1
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400000, guid: 972c5d2fec29ecd4ba1ad85a7c91e675,
+        type: 2}
+      spriteId: 1
+      triggerEvent: 0
+      eventInfo: 
+      eventInt: 0
+      eventFloat: 0
+    - spriteCollection: {fileID: 11400000, guid: 972c5d2fec29ecd4ba1ad85a7c91e675,
+        type: 2}
+      spriteId: 1
       triggerEvent: 0
       eventInfo: 
       eventInt: 0
