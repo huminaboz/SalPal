@@ -3,6 +3,10 @@
 # =============== #
 Temp/
 Library/
+\Library
+PlatformBasics\Library
+Library
+library
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
