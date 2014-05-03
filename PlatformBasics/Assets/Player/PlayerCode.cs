@@ -10,6 +10,7 @@ public class PlayerCode : MonoBehaviour {
 
     private bool isActive;
 	private float butts2;
+	public bool pooop;
 
     private Vector3 startPosition;
     public float gameOverY = -10;

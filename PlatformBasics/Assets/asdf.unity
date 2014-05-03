@@ -1887,6 +1887,7 @@ MonoBehaviour:
   characterVelocityHoriz: {x: 20, y: 0, z: 0}
   characterVelocityVert: {x: 0, y: 20, z: 0}
   velocity: 20
+  pooop: 0
   gameOverY: -10
   jumpVelocity: {x: 0, y: 25, z: 0}
 --- !u!1 &613518770
