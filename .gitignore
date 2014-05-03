@@ -13,13 +13,12 @@
 *.Trashes
  
 # All platforms:
-/Library
-Temp
+/Temp
+/obj
+/library
 *.csproj
-*.pidb
 *.unityproj
 *.sln
-*.userprefs
 
 #################
 ## Eclipse
