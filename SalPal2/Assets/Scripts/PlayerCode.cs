@@ -19,13 +19,19 @@ public class PlayerCode : MonoBehaviour {
 
 	//Animation Stuff
 	private tk2dSpriteAnimator salAnimator;
-	public enum anim { Idle, Walk, Jump, Sword }
+	public enum salAnim { Idle, Walk, Jump, Sword }
 	public enum facingDir {left, right}
 	public enum directionBtn {none, isLeft, isRight}
-	private anim salAnim;
+	//private anim salAnim;
 	public facingDir facingDirection;
+	private int flipX = -1;
 	public directionBtn theDirectionBtn;
+	private salAnim salAnimation;
 	//public directionBtn theDirectionBtn;
+
+	//Attack Stuff
+	public tk2dSpriteAnimator swordAttack;
+	//private float salAttackX= 3.45f;
 
     // Use this for initialization
     void Start()
@@ -51,7 +57,7 @@ public class PlayerCode : MonoBehaviour {
         rigidbody2D.isKinematic = false;
         isActive = true;
         enabled = true;
-		salAnim = anim.Idle;
+		salAnimation = salAnim.Idle;
 		facingDirection = facingDir.right;
 		theDirectionBtn = directionBtn.none;
 	}
@@ -97,26 +103,36 @@ public class PlayerCode : MonoBehaviour {
 	{
 		if (horizontalInput < 0 || horizontalInput > 0) 
 		{
-			salAnim = anim.Walk;
+			salAnimation = salAnim.Walk;
 			salAnimator.Play("Walk");
 		}
 
 		// keyboard input
 		if(horizontalInput < 0) 
 		{ 
-			if(theDirectionBtn != directionBtn.isLeft)
+			if(facingDirection != facingDir.left)
 			{
-				theDirectionBtn = directionBtn.isLeft;
-				facingDirection = facingDir.left;
+				if(theDirectionBtn != directionBtn.isLeft)
+				{
+					//flipX = -1;
+					FlipX();
+					theDirectionBtn = directionBtn.isLeft;
+					facingDirection = facingDir.left;
+				}
 			}
 		}
 		
 		else if (horizontalInput > 0) 
 		{ 
-			if(theDirectionBtn != directionBtn.isRight)
+			if(facingDirection != facingDir.right)
 			{
-				theDirectionBtn = directionBtn.isRight;
-				facingDirection = facingDir.right;
+				if(theDirectionBtn != directionBtn.isRight)
+				{
+					//flipX = Mathf.Abs(flipX);
+					FlipX();
+					theDirectionBtn = directionBtn.isRight;
+					facingDirection = facingDir.right;
+				}
 			}
 		}
 
@@ -133,35 +149,72 @@ public class PlayerCode : MonoBehaviour {
 	{
 		if(horizontalInput == 0) 
 		{
-			salAnim = anim.Idle;
+			salAnimation = salAnim.Idle;
 			salAnimator.Play("Idle");
 		}
 		
 		if (touchingPlatform == false)
 		{
-			salAnim = anim.Jump;
+			salAnimation = salAnim.Jump;
 			salAnimator.Play("Jump");
 		}
 	}
 
 	void FlipX()
 	{
-		//transform.localScale = Vector3 (1, 1, 1);
-		//Vector3 currentScale;
-		//currentScale = transform.localScale * Vector3 (-1, 1, 1);
-	  //	transform.localScale = currentScale;
-		//gameObject.transform.localScale += Vector3(0.1,0,0);
-		//salAnimator.gameObject.transform.localScale *= Vector3 (-1, 1, 1);
+		Vector3 newSpriteScale;
+		newSpriteScale = salAnimator.Sprite.scale;
+		newSpriteScale = new Vector3 (newSpriteScale.x * flipX, newSpriteScale.y, newSpriteScale.z);
+		salAnimator.Sprite.scale = newSpriteScale;
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
+		if (Input.GetKeyDown (KeyCode.K)) 
+		{
+			//tk2dAnimatedSprite clone = (tk2dAnimatedSprite)Instantiate(swordAttack, gameObject.transform.position + new Vector3(3.1f,.29f,0), Quaternion.identity);
+			//clone.Play("Attack");
+			//tk2dAnimatedSprite clone = tk2dAnimatedSprite.Instantiate(swordAttack, gameObject.transform.position + new Vector3(3.1f,.29f,0), Quaternion.identity) as tk2dAnimatedSprite;
+			//clone.Play("Attack");
 
-		if (Input.GetKeyDown (KeyCode.K)) {
-		//Make the salamander turn around
-			//FlipX();
+//			tk2dAnimatedSprite tempSword;
+//			tk2dSpriteCollectionData spriteCollection = Resources.Load ("Sprites/Sal/SwordSwing/SalCollection Data", typeof(tk2dSpriteCollectionData)) as tk2dSpriteCollectionData;
+//			tempSword = tk2dAnimatedSprite.AddComponent(gameObject,spriteCollection, "sword1");
+//			tempSword.transform.position = gameObject.transform.position + new Vector3(3.1f,.29f,0);
+
+			GameObject swordTemp = (GameObject)Instantiate(Resources.Load ("Sword", typeof(GameObject)));
+
+
+			if(swordTemp != null)
+			{
+				print ("asdf2");
+				tk2dAnimatedSprite swordSlash;
+				swordSlash = (tk2dAnimatedSprite)swordTemp.GetComponent<tk2dAnimatedSprite>();
+
+				if(swordSlash != null)
+				{
+					print ("asdF");
+					//swordSlash.transform.position = gameObject.transform.position + new Vector3(3.1f,.29f,0);
+				}
+			}
+
+
+			
 		}
+		
+//		if (GameObject.FindGameObjectWithTag("SwordAttack") != null) 
+//		{
+//			GameObject.FindGameObjectWithTag("SwordAttack").transform.position = gameObject.transform.position + new Vector3(3.1f,.29f,0);	
+//
+//
+//			if (salAnimation == salAnim.Walk) 
+//			{
+//				GameObject.FindGameObjectWithTag("SwordAttack").transform.position = gameObject.transform.position + new Vector3(salAttackX,.29f,0);
+//			}
+//		}
+
+
 
         if (isActive)
         {
